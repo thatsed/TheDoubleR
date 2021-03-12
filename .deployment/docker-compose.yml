@@ -1,0 +1,49 @@
+version: "3.3"
+
+services:
+  backend:
+    image: thedoubler
+    environment:
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      DJANGO_ALLOWED_HOSTS: ${FQDN}
+      POSTGRES_HOST: postgres
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    build: ..
+    command: --workers=3
+    volumes:
+      - data:/data
+    depends_on:
+      - postgres
+
+  nginx:
+    image: staticfloat/nginx-certbot
+    ports:
+      - 80:80/tcp
+      - 443:443/tcp
+    environment:
+      CERTBOT_EMAIL: ${LETSENCRYPT_EMAIL}
+      ENVSUBST_VARS: FQDN, PROXY_CACHE_TIMEOUT
+      FQDN: ${FQDN}
+      PROXY_CACHE_TIMEOUT: 60m
+    volumes:
+      - ./nginx:/etc/nginx/user.conf.d:ro
+      - letsencrypt:/etc/letsencrypt
+      - data:/data
+    depends_on:
+      - backend
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - data:/var/lib/postgresql/data
+
+volumes:
+  data:
+  letsencrypt:

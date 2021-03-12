@@ -1,0 +1,21 @@
+<script>
+  const links = document.querySelectorAll('.share-link');
+  let timeout;
+  links.forEach(function (link){
+    let uri = link.getAttribute('data-link');
+    if (!uri) {
+      link.value = location.href.replace('/share/#/', '/posts/');
+    } else {
+      link.value = location.origin + uri;
+    }
+  })
+  function copyToClipboard (e) {
+      e.select();
+      document.execCommand("copy");
+      document.getElementById('copied_alert').setAttribute('style', "bottom: 0");
+      clearTimeout(timeout);
+      timeout = setTimeout(function () {
+          document.getElementById('copied_alert').setAttribute('style', "");
+      }, 3000);
+  }
+</script>

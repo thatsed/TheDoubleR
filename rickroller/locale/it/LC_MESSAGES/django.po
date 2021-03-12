@@ -1,0 +1,152 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-11 23:40+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: forms.py:15 models.py:11
+msgid "Title"
+msgstr "Titolo"
+
+#: forms.py:21 models.py:13
+msgid "Description"
+msgstr "Descrizione"
+
+#: forms.py:27 models.py:17
+msgid "Image URL"
+msgstr "URL Immagine"
+
+#: models.py:15
+msgid "Slug"
+msgstr "Slug"
+
+#: models.py:18
+msgid "You can provide an image for extra trickery."
+msgstr "Aggiungi un'immagine per renderlo più credibile."
+
+#: models.py:21
+msgid "Date"
+msgstr "Data"
+
+#: models.py:24
+msgid "Rickroll Post"
+msgstr "Post Rickroll"
+
+#: models.py:25
+msgid "Rickroll Posts"
+msgstr "Posts Rickroll"
+
+#: templates/base.html:93 templates/rickroller/rickrollpost_form.html:61
+msgid "Create"
+msgstr "Crea"
+
+#: templates/base.html:96
+msgid "About"
+msgstr "Info"
+
+#: templates/base.html:108
+msgid "No cookie for you :D"
+msgstr "Niente cookie per te :D"
+
+#: templates/base.html:112
+msgid "Copied to clipboard."
+msgstr "Copiato negli appunti."
+
+#: templates/rickroller/about.html:5
+msgid ""
+"The latest in <strong class=\"text-danger\">R</strong>ick<strong class="
+"\"text-danger\">R</strong>olling technology"
+msgstr ""
+"Il <strong class=\"text-danger\">R</strong>ick<strong class=\"text-danger"
+"\">R</strong>olling d'avanguardia"
+
+#: templates/rickroller/about.html:7
+msgid ""
+"I saw a video on <i>\"a popular video sharing platform\"</i> of a guy asking "
+"<strong>Guinness World Records</strong> recognition for the most celebrities "
+"<strong class=\"text-danger\">R</strong>ick<strong class=\"text-danger\">R</"
+"strong>olled in a week.\n"
+"      I saw him sharing the links using <i>\"a popular link-shortener website"
+"\"</i>, and I was shocked by how primal his technique was."
+msgstr ""
+"Ho visto un video su <i>\"una nota piattaforma di condivisione video\"</i> "
+"di un ragazzo che ha chiesto a <strong>Guinness World Records</strong> il "
+"riconoscimento per il maggior numero di celebrità <strong class=\"text-danger"
+"\">R</strong>ick<strong class=\"text-danger\">R</strong>ollate in una "
+"settimana.\n"
+"L'ho notato condividere i link utilizzando <i>\"un noto sito di "
+"accorciamento per i link\"</i>, e sono rimasto scosso da quanto primordiale "
+"fosse la sua tecnica."
+
+#: templates/rickroller/about.html:10
+msgid "So here we are now, enjoy!"
+msgstr "E quindi eccoci qua. Goditela!"
+
+#: templates/rickroller/about.html:11
+msgid "No <strong class=\"text-danger\">C</strong>ookie for You"
+msgstr "Niente <strong class=\"text-danger\">C</strong>ookie per Te"
+
+#: templates/rickroller/about.html:13
+msgid ""
+"No cookie is needed. Even functional ones like session or CSRF protection "
+"are overkill here. So, no cookie is set. Enjoy!"
+msgstr ""
+"Non serve nessun cookie. Anche quelli funzionali come di sessione o "
+"protezione da CSRF sono eccessivi qui. Quindi, nessun cookie viene "
+"impostato. Goditela!"
+
+#: templates/rickroller/rickrollpost_form.html:35
+msgid ""
+"<strong class=\"text-danger\">R</strong>ick<strong class=\"text-danger\">R</"
+"strong>oll anyone"
+msgstr ""
+"<strong class=\"text-danger\">R</strong>ick<strong class=\"text-danger\">R</"
+"strong>olla chi vuoi"
+
+#: templates/rickroller/rickrollpost_form.html:36
+msgid "Create a fake article. Share it. Enjoy."
+msgstr "Crea un finto articolo. Condividilo. Goditela."
+
+#: templates/rickroller/rickrollpost_list.html:5
+msgid ""
+"The latest in <strong class=\"text-danger\">R</strong>ick<strong class="
+"\"text-danger\">R</strong>olling trends"
+msgstr ""
+
+#: templates/rickroller/rickrollpost_list.html:11
+msgid "Preview"
+msgstr "Anteprima"
+
+#: templates/rickroller/rickrollpost_list.html:31
+msgid "Copy"
+msgstr "Copia"
+
+#: templates/rickroller/rickrollpost_list.html:38
+msgid "More"
+msgstr "Altri"
+
+#: templates/rickroller/share.html:5
+msgid ""
+"Share your <strong class=\"text-danger\">R</strong>ick<strong class=\"text-"
+"danger\">R</strong>oll"
+msgstr ""
+"Condividi il tuo <strong class=\"text-danger\">R</strong>ick<strong class="
+"\"text-danger\">R</strong>oll"
+
+#: templates/rickroller/share.html:8
+msgid "Click to copy"
+msgstr "Clicca per copiare"

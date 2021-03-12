@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <h1 class="mt-5 mt-sm-0">{% blocktrans %}Share your <strong class="text-danger">R</strong>ick<strong class="text-danger">R</strong>oll{% endblocktrans %}</h1>
+  <div class="my-4 mx-auto max-w-40">
+    <input readonly type="text" class="lead border border-primary bg-transparent text-center text-white form-control d-block share-link" style="border: 0" value="" onclick="copyToClipboard(this)">
+    <div class="help-text small text-muted mt-2" onclick="copyToClipboard(this.previousElementSibling)">{% trans "Click to copy" %}</div>
+  </div>
+{% endblock %}
+
+{% block js %}
+  {% include '_share_js.html' %}
+{% endblock %}

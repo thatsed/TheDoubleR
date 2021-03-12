@@ -1,0 +1,34 @@
+version: "3.3"
+
+services:
+  app:
+    container_name: thedoubler
+    image: thedoubler
+    environment:
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      DJANGO_ALLOWED_HOSTS: ${FQDN}
+    build: ..
+    volumes:
+      - data:/data
+
+  nginx:
+    image: staticfloat/nginx-certbot
+    ports:
+      - 80:80/tcp
+      - 443:443/tcp
+    environment:
+      CERTBOT_EMAIL: ${LETSENCRYPT_EMAIL}
+      ENVSUBST_VARS: FQDN, PROXY_CACHE_TIMEOUT
+      FQDN: ${FQDM}
+      PROXY_CACHE_TIMEOUT: 60m
+    volumes:
+      - ./nginx:/etc/nginx/user.conf.d:ro
+      - letsencrypt:/etc/letsencrypt
+      - data:/data
+    depends_on:
+      - app
+
+
+volumes:
+  data:
+  letsencrypt:

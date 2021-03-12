@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <h1 class="my-5">{% blocktrans %}The latest in <strong class="text-danger">R</strong>ick<strong class="text-danger">R</strong>olling technology{% endblocktrans %}</h1>
+  <p class="lead">
+    {% blocktrans %}I saw a video on <i>"a popular video sharing platform"</i> of a guy asking <strong>Guinness World Records</strong> recognition for the most celebrities <strong class="text-danger">R</strong>ick<strong class="text-danger">R</strong>olled in a week.
+      I saw him sharing the links using <i>"a popular link-shortener website"</i>, and I was shocked by how primal his technique was.{% endblocktrans %}
+  </p>
+  <p class="lead">{% blocktrans %}So here we are now, enjoy!{% endblocktrans %}</p>
+  <h1 class="my-5" id="cookies">{% blocktrans %}No <strong class="text-danger">C</strong>ookie for You{% endblocktrans %}</h1>
+  <p class="lead">
+    {% blocktrans %}No cookie is needed. Even functional ones like session or CSRF protection are overkill here. So, no cookie is set. Enjoy!{% endblocktrans %}
+  </p>
+{% endblock %}

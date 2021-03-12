@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <h1 class="my-5">{% blocktrans %}The latest in <strong class="text-danger">R</strong>ick<strong class="text-danger">R</strong>olling trends{% endblocktrans %}</h1>
+  <div class="row">
+    {% for post in posts %}
+      <div class="col-12 col-lg-6 col-xl-4 mb-4">
+        <div class="card bg-dark preview-card">
+          <div class="card-header">
+            {% trans "Preview" %}
+          </div>
+          <div class="card-body">
+            <div class="row">
+              {% if post.image %}
+                <div class="col-4 col-md-3">
+                  <div class="bg-light rounded img-container">
+                    <img src="{{ post.image }}" class="img-fluid rounded b-1" />
+                  </div>
+                </div>
+              {% endif %}
+              <div class="{% if post.image %}col-8 col-md-9{% else %}col-12{% endif %}">
+                <h1 class="preview-title">{{ post.title }}</h1>
+                <p class="preview-description">{{ post.description }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="input-group my-4 mx-auto max-w-40">
+              <input readonly type="text" class="lead bg-dark text-white form-control d-block share-link" style="border: 0" data-link="{{ post.get_absolute_url }}" onclick="copyToClipboard(this)">
+              <button class="input-group-text btn btn-primary" onclick="copyToClipboard(this.previousElementSibling)">{% trans "Copy" %}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  {% if page_obj.has_next %}<a class="btn btn-outline-primary" href="?page={{ page_obj.next_page_number }}">{% trans "More" %}</a>{% endif %}
+{% endblock %}
+
+{% block js %}
+{% include '_share_js.html' %}
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block css %}
+  <style>
+  .asteriskField {
+      display: none;
+  }
+  label {
+      display: none;
+  }
+  .form-group {
+      margin-top: 0;
+  }
+  .img-container {
+      min-height: 5rem;
+  }
+  textarea {
+      resize: none;
+      box-sizing: border-box;
+      overflow: hidden;
+  }
+  #img-preview {
+      border-radius: 1.25rem;
+      height: 8rem;
+      background-color: #6c757d!important;
+      background-size: cover!important;
+  }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <h1 class="mt-5 mt-sm-0">{% blocktrans %}<strong class="text-danger">R</strong>ick<strong class="text-danger">R</strong>oll anyone{% endblocktrans %}</h1>
+  <p class="lead">{% trans "Create a fake article. Share it. Enjoy." %}</p>
+
+  <div class="max-w-40 mx-auto my-4">
+    <div class="card bg-dark preview-card">
+      <div class="card-body">
+        <form method="post" id="form">
+          <div class="row">
+            <div class="col-12">
+              {{ form.title|as_crispy_field }}
+            </div>
+          </div>
+          <div class="row mt-1">
+            <div class="col-12 col-sm-8 col-md-9">
+              {{ form.description|as_crispy_field }}
+            </div>
+            <div class="col-12 col-sm-4 col-md-3">
+              <div id="img-preview" class="bg-light border-1 border-primary mt-1"></div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            {{ form.image|as_crispy_field }}
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-primary d-block w-100" id="submit" form="form">{% trans "Create" %}</button>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block js %}
+  <script>
+    document.querySelector('[name=image]').addEventListener('change', function() {
+        document.getElementById('img-preview').setAttribute('style', `background:url(${this.value}) center center no-repeat`);
+    });
+    document.getElementById('img-preview').addEventListener('click', function () {
+        document.querySelector('[name=image]').focus();
+    })
+    document.querySelectorAll('textarea').forEach(function (element) {
+      element.style.boxSizing = 'border-box';
+      let offset = element.offsetHeight - element.clientHeight;
+      element.addEventListener('input', function (event) {
+        if (event.target.hasAttribute('data-nonl')) {
+            event.target.value = event.target.value.replace(/[\r\n\v]+/g, '');
+        }
+        event.target.style.height = 'auto';
+        event.target.style.height = event.target.scrollHeight + offset + 'px';
+      });
+    });
+  </script>
+{% endblock %}
