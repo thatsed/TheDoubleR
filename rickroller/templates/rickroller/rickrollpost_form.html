@@ -55,6 +55,9 @@
           <div class="row mt-2">
             {{ form.image|as_crispy_field }}
           </div>
+          <div class="row mt-4">
+            {{ form.redirect_url|as_crispy_field }}
+          </div>
         </form>
       </div>
       <div class="card-footer">
@@ -71,6 +74,11 @@
     });
     document.getElementById('img-preview').addEventListener('click', function () {
         document.querySelector('[name=image]').focus();
+    })
+    document.querySelectorAll('[data-toggle=collapse]').forEach(function (element) {
+        element.addEventListener('click', function (event) {
+            document.querySelector(event.target.attr('href')).toggleClass('show');
+        })
     })
     document.querySelectorAll('textarea').forEach(function (element) {
       element.style.boxSizing = 'border-box';

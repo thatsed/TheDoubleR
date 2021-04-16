@@ -1,4 +1,5 @@
 from django import forms
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from rickroller.models import RickrollPost
@@ -7,7 +8,7 @@ from rickroller.models import RickrollPost
 class RickrollPostForm(forms.ModelForm):
     class Meta:
         model = RickrollPost
-        fields = ('title', 'description', 'image')
+        fields = ('title', 'description', 'image', 'redirect_url')
         widgets = {
             'title': forms.Textarea(attrs={
                 'data-nonl': True,
@@ -25,6 +26,11 @@ class RickrollPostForm(forms.ModelForm):
             'image': forms.URLInput(attrs={
                 'class': "form-control bg-dark border-0 text-light",
                 "placeholder": _("Image URL"),
+                "autocomplete": "off",
+            }),
+            'redirect_url': forms.URLInput(attrs={
+                'class': "form-control bg-dark border-0 text-light",
+                "placeholder": settings.RICKROLL_URL,
                 "autocomplete": "off",
             }),
         }
